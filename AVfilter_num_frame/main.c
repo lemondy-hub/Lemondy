@@ -49,15 +49,6 @@ int process_avfilter(FILE *fp_in,FILE *fp_out,int in_width,int in_height,const c
         in_width,in_height,AV_PIX_FMT_YUV420P,
         1, 15,1,1);
 
-    //创建一个过滤器实例并将其添加到现有图形中。该过滤器实例由filter filt创建，并使用参数args和opaque初始化。
-    //如果成功，则将*filt_ctx放入创建的过滤器实例的指针，否则将*filt_ctx设置为NULL。
-    //参数1：用来保存创建好的过滤器上下文
-    //参数2：过滤器
-    //参数3：过滤器名,表明的是AVFilter在Graph中的名称，必须唯一。
-    //参数4：传给过滤器的参数.注意仅仅是这个AVFilter的参数，不是整个graph的参数。
-    //参数5：NULL
-    //参数6：过滤器图像管理指针
-    //将一串通过字符串描述的Graph添加到FilterGraph中
     //由buffersrc创建buffersrc_ctx，并将参数传给buffersrc_ctx，之后将buffersrc_ctx传给filter_graph
     ret = avfilter_graph_create_filter(&buffersrc_ctx, buffersrc, "in",
         args, NULL, filter_graph);
